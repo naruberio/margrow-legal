@@ -1,0 +1,124 @@
+---
+layout: null
+permalink: /guides/resale-profit-ja
+last_modified_at: 2026-11-15
+---
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>転売の利益を計算する方法（手数料・送料を引いた手取りと利益率）| Margrow</title>
+  <meta name="description" content="フリマ・オークションで売ったときの利益は「売値 − 手数料 − 送料 − その他の費用 − 仕入れ値」。計算の例と、iPhone の台帳アプリ Margrow で出品価格・値下げ交渉・売れた後の利益を出す手順。">
+  {% comment %} 用途別の説明ページ（KAN-1242）。英語版が正本。ボタン名は公開中の 2.0.0 の ja の表示（flip-profit の i18n/ja.ts）と一字一句そろえる。
+       式は flip-profit の domain/fees.ts の netProceeds と domain/pricing.ts（利益率は売値に対する利益）に合わせる。
+       無料の代替手段・アプリ自身の制約・価格と課金の形は書かない（soundpull-app D-58・D-59 を全アプリに当てる） {% endcomment %}
+  <link rel="canonical" href="https://naruberio.github.io/margrow-legal/guides/resale-profit-ja">
+  <link rel="alternate" hreflang="en" href="https://naruberio.github.io/margrow-legal/guides/resale-profit">
+  <link rel="alternate" hreflang="ja" href="https://naruberio.github.io/margrow-legal/guides/resale-profit-ja">
+  <link rel="alternate" hreflang="x-default" href="https://naruberio.github.io/margrow-legal/guides/resale-profit">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Margrow">
+  <meta property="og:title" content="転売の利益を計算する方法（手数料・送料を引いた手取りと利益率）">
+  <meta property="og:description" content="利益 ＝ 売値 − 手数料 − 送料 − その他の費用 − 仕入れ値。計算の例と、Margrow での手順。">
+  <meta property="og:url" content="https://naruberio.github.io/margrow-legal/guides/resale-profit-ja">
+  <link rel="stylesheet" href="./ledger.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "HowTo",
+        "name": "転売の利益を計算する方法",
+        "inLanguage": "ja",
+        "url": "https://naruberio.github.io/margrow-legal/guides/resale-profit-ja",
+        "dateModified": "2026-11-15",
+        "tool": {"@type": "HowToTool", "name": "Margrow（iPhone アプリ）"},
+        "step": [
+          {"@type": "HowToStep", "position": 1, "text": "在庫のタブの右下の＋から［1 品を追加］を選び、名前・仕入れ値・仕入れ日を入れて［保存］します。下回りたくない額があれば［最低価格］も入れます。"},
+          {"@type": "HowToStep", "position": 2, "text": "品の詳細で［出品価格を決める］を開き、［決め方］を［利益の額］か［利益率］にして目標を入れます。［販売先ごとの出品価格］に、手数料を含めた出品価格と手取り・利益が並びます。"},
+          {"@type": "HowToStep", "position": 3, "text": "値下げの申し出が来たら［値下げ交渉の判定］で［申し出の額］を入れます。［受けてよい］［最低価格を下回る］［赤字］［目標の利益率に届かない］のどれかが出ます。"},
+          {"@type": "HowToStep", "position": 4, "text": "売れたら［売れた］で売値・購入者が払った送料・実際の送料・その他の費用を入れます。手数料は計算した値が入り、利益が出ます。［売れたを記録］で台帳に残ります。"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "inLanguage": "ja",
+        "mainEntity": [
+          {"@type": "Question", "name": "転売の利益はどう計算しますか？", "acceptedAnswer": {"@type": "Answer", "text": "手取り ＝ 売値 ＋ 購入者が払った送料 − 手数料 − 実際の送料 − その他の費用。利益 ＝ 手取り − 仕入れ値。Margrow はこの式で品ごとの利益を出します。"}},
+          {"@type": "Question", "name": "利益率は何に対する割合ですか？", "acceptedAnswer": {"@type": "Answer", "text": "Margrow の利益率は、売値に対する利益の割合です。"}},
+          {"@type": "Question", "name": "販売先ごとの手数料はどう入りますか？", "acceptedAnswer": {"@type": "Answer", "text": "メルカリ・ヤフオク!・ラクマなどの販売先の手数料が初めから入っていて、確認した日付が添えてあります。手数料が変わったら設定の［販売先の手数料］で直せます。"}},
+          {"@type": "Question", "name": "値下げ交渉を受けてよいかはどう判断しますか？", "acceptedAnswer": {"@type": "Answer", "text": "［値下げ交渉の判定］に申し出の額を入れると、手数料と送料を引いた手取りと利益を出し、最低価格と目標の利益率を守れるかを判定します。届かない額なら、条件を満たす対案の額も出します。"}},
+          {"@type": "Question", "name": "記録はどこに保存されますか？", "acceptedAnswer": {"@type": "Answer", "text": "すべて iPhone の中に保存します。アカウントの登録はありません。"}}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+<div class="page">
+  <header class="head">
+    <a href="../">Margrow</a>
+    <span class="lang"><a href="./resale-profit" lang="en" hreflang="en">English</a><span aria-current="page">日本語</span></span>
+  </header>
+
+  <h1>転売の利益を計算する方法</h1>
+  <p class="sub">売れた額から手数料と送料を引き、さらに仕入れ値を引いたものが利益です。1 品ずつ記録しておけば、出品の前にも、値下げの申し出が来たときにも、同じ式で判断できます。</p>
+
+  <h2>計算の式</h2>
+  <p class="formula">手取り ＝ 売値 ＋ 購入者が払った送料 − 手数料 − 実際の送料 − その他の費用<br>利益 ＝ 手取り − 仕入れ値<br>利益率 ＝ 利益 ÷ 売値</p>
+
+  <h2>計算の例</h2>
+  <div class="wrap">
+    <table class="ledger">
+      <thead><tr><th scope="col">項目</th><th scope="col" class="n">金額</th></tr></thead>
+      <tbody>
+        <tr><td>売値</td><td class="n">3,000 円</td></tr>
+        <tr><td>購入者が払った送料（送料込みで出品）</td><td class="n">0 円</td></tr>
+        <tr><td>手数料（例: 売値の 10% の販売先）</td><td class="n">− 300 円</td></tr>
+        <tr><td>実際の送料（例）</td><td class="n">− 400 円</td></tr>
+        <tr><td>その他の費用（梱包など）</td><td class="n">− 50 円</td></tr>
+        <tr><td>手取り</td><td class="n">2,250 円</td></tr>
+        <tr><td>仕入れ値</td><td class="n">− 1,000 円</td></tr>
+        <tr class="total"><td>利益（利益率 約 41.7%）</td><td class="n">1,250 円</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">数字は説明のための例です。手数料の率と送料は販売先と発送の方法で変わります。</p>
+
+  <h2>Margrow での手順</h2>
+  <ol class="entries">
+    <li>在庫のタブの右下の ＋ から <span class="ui">1 品を追加</span> を選び、<span class="ui">名前</span>・<span class="ui">仕入れ値</span>・<span class="ui">仕入れ日</span> を入れて <span class="ui">保存</span> します。これより安くは売らない額があれば <span class="ui">最低価格</span> も入れます。</li>
+    <li>品の詳細で <span class="ui">出品価格を決める</span> を開き、<span class="ui">決め方</span> を <span class="ui">利益の額</span> か <span class="ui">利益率</span> にして目標を入れます。<span class="ui">販売先ごとの出品価格</span> に、手数料を含めた出品価格と「手取り・利益」が並びます。決めたら <span class="ui">この価格で出品</span>。</li>
+    <li>値下げの申し出が来たら <span class="ui">値下げ交渉の判定</span> で <span class="ui">申し出の額</span> を入れます。<span class="ui">受けてよい</span>・<span class="ui">最低価格を下回る</span>・<span class="ui">赤字</span>・<span class="ui">目標の利益率に届かない</span> のどれかが出ます。</li>
+    <li>売れたら <span class="ui">売れた</span> で <span class="ui">売値</span>・<span class="ui">購入者が払った送料</span>・<span class="ui">実際の送料</span>・<span class="ui">その他の費用</span> を入れます。<span class="ui">手数料</span> には計算した値が入り、<span class="ui">利益</span> が出ます。<span class="ui">売れたを記録</span> で台帳に残ります。</li>
+  </ol>
+  <p>仕入れの前に確かめたいときは、仕入れのタブの <span class="ui">買ってよい上限</span> に <span class="ui">見込みの売値</span>・<span class="ui">売る販売先</span>・<span class="ui">送料</span> と目標の利益率か ROI を入れると、<span class="ui">この額まで</span> に仕入れ値の上限が出ます。</p>
+
+  <a class="store" href="https://apps.apple.com/app/apple-store/id6761647575?ct=mgweb-profit-ja&amp;mt=8">App Store で Margrow を見る</a>
+
+  <h2>よくある質問</h2>
+  <dl class="qa">
+    <dt>転売の利益はどう計算しますか？</dt>
+    <dd>手取り ＝ 売値 ＋ 購入者が払った送料 − 手数料 − 実際の送料 − その他の費用。利益 ＝ 手取り − 仕入れ値。Margrow はこの式で品ごとの利益を出します。</dd>
+    <dt>利益率は何に対する割合ですか？</dt>
+    <dd>Margrow の利益率は、売値に対する利益の割合です。</dd>
+    <dt>販売先ごとの手数料はどう入りますか？</dt>
+    <dd>メルカリ・ヤフオク!・ラクマなどの販売先の手数料が初めから入っていて、確認した日付が添えてあります。手数料が変わったら設定の <span class="ui">販売先の手数料</span> で直せます。</dd>
+    <dt>値下げ交渉を受けてよいかはどう判断しますか？</dt>
+    <dd><span class="ui">値下げ交渉の判定</span> に申し出の額を入れると、手数料と送料を引いた手取りと利益を出し、最低価格と目標の利益率を守れるかを判定します。届かない額なら、条件を満たす対案の額も出します。</dd>
+    <dt>記録はどこに保存されますか？</dt>
+    <dd>すべて iPhone の中に保存します。アカウントの登録はありません。</dd>
+  </dl>
+
+  <h2>ほかの使い方</h2>
+  <p class="related"><a href="./inventory-ledger-ja">仕入れと在庫の台帳をつける方法</a></p>
+
+  <footer class="foot">
+    <a href="../support">サポート</a><a href="../privacy-policy-ja">プライバシーポリシー</a><a href="../terms-ja">利用規約</a>
+  </footer>
+</div>
+</body>
+</html>

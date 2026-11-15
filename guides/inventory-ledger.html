@@ -1,0 +1,118 @@
+---
+layout: null
+permalink: /guides/inventory-ledger
+last_modified_at: 2026-11-15
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>How to keep a sourcing and inventory ledger for reselling on iPhone | Margrow</title>
+  <meta name="description" content="Track every item you flip from purchase to sale on iPhone: cost, listings, days in stock and cost of goods sold. Split the cost of a bundle, and import eBay and Etsy order CSVs with Margrow.">
+  {% comment %} Use-case page (KAN-1242). English is canonical. Button names match the en strings of the live 2.0.0 (flip-profit i18n/en.ts) word for word.
+       The used-goods register (古物台帳) is ja only (flip-profit README H / I), so it is not on this page.
+       No free alternatives, no limits of the App, no price or billing model (soundpull-app D-58 / D-59 applied to every app). {% endcomment %}
+  <link rel="canonical" href="https://naruberio.github.io/margrow-legal/guides/inventory-ledger">
+  <link rel="alternate" hreflang="en" href="https://naruberio.github.io/margrow-legal/guides/inventory-ledger">
+  <link rel="alternate" hreflang="ja" href="https://naruberio.github.io/margrow-legal/guides/inventory-ledger-ja">
+  <link rel="alternate" hreflang="x-default" href="https://naruberio.github.io/margrow-legal/guides/inventory-ledger">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Margrow">
+  <meta property="og:title" content="How to keep a sourcing and inventory ledger for reselling">
+  <meta property="og:description" content="Every item from purchase to sale: cost, listings, days in stock and cost of goods sold.">
+  <meta property="og:url" content="https://naruberio.github.io/margrow-legal/guides/inventory-ledger">
+  <link rel="stylesheet" href="./ledger.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "HowTo",
+        "name": "How to keep a sourcing and inventory ledger for reselling",
+        "inLanguage": "en",
+        "url": "https://naruberio.github.io/margrow-legal/guides/inventory-ledger",
+        "dateModified": "2026-11-15",
+        "tool": {"@type": "HowToTool", "name": "Margrow (iPhone app)"},
+        "step": [
+          {"@type": "HowToStep", "position": 1, "text": "On the Inventory tab, tap + at the bottom right and choose [Add one item]. Enter the Name, Photo, Bought on date, Source, Cost and Expected price, then tap [Save]. If you bought several items together, choose [Add a bundle]."},
+          {"@type": "HowToStep", "position": 2, "text": "When you list an item, open [Set List Price] on the item to check the price for each marketplace, and record the listing with [List at this price]."},
+          {"@type": "HowToStep", "position": 3, "text": "When it sells, open [Mark as Sold] and tap [Record sale]. With many orders, use [Import CSV] on the Sales tab to record them from your marketplace’s order file."},
+          {"@type": "HowToStep", "position": 4, "text": "Filter the inventory list by [Status] and set [Sort by] to [Days in stock] to see the items that have been with you longest first."},
+          {"@type": "HowToStep", "position": 5, "text": "At the end of the year, open [Tax summary] on the Books tab to see Beginning inventory, Purchases, Ending inventory and Cost of goods sold."}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "inLanguage": "en",
+        "mainEntity": [
+          {"@type": "Question", "name": "How do I split the cost of a bundle?", "acceptedAnswer": {"@type": "Answer", "text": "In [Add a bundle], enter the Total paid and the items, then choose [Split cost]: By expected price, Evenly or Manually. Splitting by expected price puts more of the cost on items you expect to sell for more."}},
+          {"@type": "Question", "name": "How do I find items that are not selling?", "acceptedAnswer": {"@type": "Answer", "text": "Set [Sort by] to [Days in stock] in the inventory list. Items older than [Flag items after (days)] in Settings are marked, and with [Reprice reminders] on you get a notification on your iPhone."}},
+          {"@type": "Question", "name": "Does it give me numbers for my taxes?", "acceptedAnswer": {"@type": "Answer", "text": "The [Tax summary] on the Books tab shows, per year, cost of goods sold from beginning inventory, purchases and ending inventory, along with expenses and mileage. The figures are a bookkeeping guide, not tax advice."}},
+          {"@type": "Question", "name": "Which order files can I import?", "acceptedAnswer": {"@type": "Answer", "text": "An eBay Transaction report and an Etsy Sold Orders file are matched automatically. For other CSV files, you choose which column holds each value."}},
+          {"@type": "Question", "name": "How do I move my ledger to a new iPhone?", "acceptedAnswer": {"@type": "Answer", "text": "In Settings, open [Export & Backup] and use [Export backup] to save the whole ledger as one file, then open it in Margrow on the new iPhone."}}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+<div class="page">
+  <header class="head">
+    <a href="../">Margrow</a>
+    <span class="lang"><span aria-current="page">English</span><a href="./inventory-ledger-ja" lang="ja" hreflang="ja">日本語</a></span>
+  </header>
+
+  <h1>How to keep a sourcing and inventory ledger for reselling</h1>
+  <p class="sub">Write each item down when you buy it, list it, and close it out when it sells. Margrow keeps that ledger on your iPhone, one item at a time, so you always know what you paid, what is still on hand, and what you made.</p>
+
+  <h2>What each line of the ledger keeps</h2>
+  <div class="wrap">
+    <table class="ledger">
+      <thead><tr><th scope="col">When</th><th scope="col">What is kept</th></tr></thead>
+      <tbody>
+        <tr><td>You buy it</td><td>Name, photo, date bought, source, cost, expected price, lowest price, category</td></tr>
+        <tr><td>You list it</td><td>Marketplace, list price and expected shipping, for as many marketplaces as you list on</td></tr>
+        <tr><td>It sells</td><td>Sale price, date sold, fees, shipping label cost, other costs, order number, profit</td></tr>
+        <tr><td>It leaves otherwise</td><td>Returned to the source, or written off (including lost), with the date</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Steps in Margrow</h2>
+  <ol class="entries">
+    <li>On the Inventory tab, tap + at the bottom right and choose <span class="ui">Add one item</span>. Enter the <span class="ui">Name</span>, <span class="ui">Photo</span>, <span class="ui">Bought on</span> date, <span class="ui">Source</span>, <span class="ui">Cost</span> and <span class="ui">Expected price</span>, then tap <span class="ui">Save</span>. If you bought several items together, choose <span class="ui">Add a bundle</span>.</li>
+    <li>When you list an item, open <span class="ui">Set List Price</span> on the item to check the price for each marketplace, and record the listing with <span class="ui">List at this price</span>.</li>
+    <li>When it sells, open <span class="ui">Mark as Sold</span> and tap <span class="ui">Record sale</span>. With many orders, use <span class="ui">Import CSV</span> on the Sales tab to record them from your marketplace’s order file.</li>
+    <li>Filter the inventory list by <span class="ui">Status</span> and set <span class="ui">Sort by</span> to <span class="ui">Days in stock</span> to see the items that have been with you longest first.</li>
+    <li>At the end of the year, open <span class="ui">Tax summary</span> on the Books tab to see <span class="ui">Beginning inventory</span>, <span class="ui">Purchases</span>, <span class="ui">Ending inventory</span> and <span class="ui">Cost of goods sold</span>.</li>
+  </ol>
+  <p>Heading out to source? Tap <span class="ui">Start a trip</span> on the Sourcing tab and set a <span class="ui">Budget</span>. <span class="ui">This trip</span> then shows the items you added and how much you spent.</p>
+
+  <a class="store" href="https://apps.apple.com/app/apple-store/id6761647575?ct=mgweb-ledger-en&amp;mt=8">View Margrow on the App Store</a>
+
+  <h2>Questions</h2>
+  <dl class="qa">
+    <dt>How do I split the cost of a bundle?</dt>
+    <dd>In <span class="ui">Add a bundle</span>, enter the <span class="ui">Total paid</span> and the items, then choose <span class="ui">Split cost</span>: <span class="ui">By expected price</span>, <span class="ui">Evenly</span> or <span class="ui">Manually</span>. Splitting by expected price puts more of the cost on items you expect to sell for more.</dd>
+    <dt>How do I find items that are not selling?</dt>
+    <dd>Set <span class="ui">Sort by</span> to <span class="ui">Days in stock</span> in the inventory list. Items older than <span class="ui">Flag items after (days)</span> in Settings are marked, and with <span class="ui">Reprice reminders</span> on you get a notification on your iPhone.</dd>
+    <dt>Does it give me numbers for my taxes?</dt>
+    <dd>The <span class="ui">Tax summary</span> on the Books tab shows, per year, cost of goods sold from beginning inventory, purchases and ending inventory, along with expenses and mileage. The figures are a bookkeeping guide, not tax advice.</dd>
+    <dt>Which order files can I import?</dt>
+    <dd>An eBay Transaction report and an Etsy Sold Orders file are matched automatically. For other CSV files, you choose which column holds each value.</dd>
+    <dt>How do I move my ledger to a new iPhone?</dt>
+    <dd>In Settings, open <span class="ui">Export &amp; Backup</span> and use <span class="ui">Export backup</span> to save the whole ledger as one file, then open it in Margrow on the new iPhone.</dd>
+  </dl>
+
+  <h2>Another way to use it</h2>
+  <p class="related"><a href="./resale-profit">How to calculate resale profit after fees and shipping</a></p>
+
+  <footer class="foot">
+    <a href="../support">Support</a><a href="../privacy-policy">Privacy Policy</a><a href="../terms">Terms of Use</a>
+  </footer>
+</div>
+</body>
+</html>

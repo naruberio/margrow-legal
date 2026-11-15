@@ -1,0 +1,60 @@
+/* Margrow の用途別ページ（KAN-1242）の見た目。テーマ（minimal）は使わない。
+   帳簿の罫線と紺のインクに寄せ、計算は表で見せる。
+   SoundPull（明るい地・紫・結論の枠）・FrameSmoother（暗いグラファイト・琥珀・章札）・
+   Readglide（紙の地・場面の物語）・Tightcut（深緑とライムのカード）と、地の色・部品・章立てを分ける（全社の重複チェック ①②）。 */
+:root {
+  --paper: #fbfaf5;
+  --ink: #1d2a44;
+  --muted: #5b6475;
+  --rule: #d9dfe9;
+  --margin: #c7533c;
+  --sprout: #3f8f5b;
+  --shade: #eef1f6;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #14171d;
+    --ink: #e4e8f0;
+    --muted: #a0a8b8;
+    --rule: #2b3140;
+    --margin: #e07a62;
+    --sprout: #7cc596;
+    --shade: #1c212b;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", Georgia, serif;
+  line-height: 1.8;
+}
+.page { max-width: 740px; margin: 0 auto; padding: 0 1rem 3rem; border-left: 2px solid var(--margin); }
+header.head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; padding: 1rem 0 0.4rem; font-family: system-ui, -apple-system, "Hiragino Sans", sans-serif; font-size: 0.9rem; border-bottom: 1px solid var(--rule); }
+header.head a { color: var(--ink); }
+header.head .lang a, header.head .lang span { margin-left: 0.6rem; }
+h1 { font-size: 1.6rem; line-height: 1.4; margin: 1.6rem 0 0.4rem; }
+.sub { color: var(--muted); margin: 0 0 1.2rem; }
+h2 { font-size: 1.1rem; margin: 2rem 0 0.6rem; padding-bottom: 0.2rem; border-bottom: 3px double var(--rule); }
+.wrap { overflow-x: auto; }
+table.ledger { border-collapse: collapse; width: 100%; font-family: system-ui, -apple-system, "Hiragino Sans", sans-serif; font-size: 0.95rem; }
+table.ledger th, table.ledger td { padding: 0.45rem 0.6rem; border-bottom: 1px solid var(--rule); text-align: left; }
+table.ledger td.n, table.ledger th.n { text-align: right; font-variant-numeric: tabular-nums; }
+table.ledger tr.total td { border-top: 2px solid var(--ink); font-weight: 700; }
+table.ledger tr.total td.n { color: var(--sprout); }
+.formula { background: var(--shade); padding: 0.7rem 0.9rem; font-family: system-ui, -apple-system, "Hiragino Sans", sans-serif; font-size: 0.95rem; }
+.note { font-size: 0.85rem; color: var(--muted); }
+ol.entries { padding-left: 0; list-style: none; counter-reset: e; font-family: system-ui, -apple-system, "Hiragino Sans", sans-serif; }
+ol.entries li { counter-increment: e; padding: 0.6rem 0 0.6rem 3.2rem; position: relative; border-bottom: 1px dashed var(--rule); }
+ol.entries li::before { content: "No." counter(e); position: absolute; left: 0; top: 0.65rem; font-size: 0.8rem; color: var(--margin); font-weight: 700; }
+.ui { font-weight: 700; }
+.qa { font-family: system-ui, -apple-system, "Hiragino Sans", sans-serif; }
+.qa dt { font-weight: 700; margin-top: 1rem; }
+.qa dt::before { content: "Q. "; color: var(--margin); }
+.qa dd { margin: 0.2rem 0 0; padding-left: 1.6rem; }
+.store { display: inline-block; margin: 1.4rem 0; padding: 0.7rem 1.2rem; border: 2px solid var(--ink); color: var(--ink); text-decoration: none; font-family: system-ui, -apple-system, "Hiragino Sans", sans-serif; font-weight: 700; }
+.store:hover { background: var(--ink); color: var(--paper); }
+.related a { color: var(--ink); }
+footer.foot { margin-top: 2.5rem; padding-top: 0.8rem; border-top: 1px solid var(--rule); font-family: system-ui, -apple-system, "Hiragino Sans", sans-serif; font-size: 0.85rem; color: var(--muted); }
+footer.foot a { color: var(--muted); margin-right: 0.8rem; }
