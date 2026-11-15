@@ -15,4 +15,9 @@ Margrow は、仕入れから売却までを 1 品ずつ記録し、販売先の
 | Terms of Use | [Read](./terms) | [利用規約](./terms-ja) |
 | Help | [Support](./support) | [サポート](./support) |
 
+## How to use it / 使い方
+
+- [How to calculate resale profit after fees and shipping](./guides/resale-profit) / [転売の利益を計算する方法](./guides/resale-profit-ja)
+- [How to keep a sourcing and inventory ledger for reselling](./guides/inventory-ledger) / [仕入れと在庫の台帳をつける方法](./guides/inventory-ledger-ja)
+
 Questions: [konpei.work@gmail.com](mailto:konpei.work@gmail.com)

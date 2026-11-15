@@ -3,3 +3,8 @@ title: Margrow
 description: Margrow（転売の在庫・利益の台帳）のプライバシーポリシー・利用規約・サポート
 theme: jekyll-theme-minimal
 lang: en
+# 用途別のページ（guides/・KAN-1242）を検索エンジンに知らせるため sitemap.xml を出す（readglide-legal と同じ書き方）
+url: https://naruberio.github.io
+baseurl: /margrow-legal
+plugins:
+  - jekyll-sitemap

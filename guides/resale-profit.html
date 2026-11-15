@@ -1,0 +1,124 @@
+---
+layout: null
+permalink: /guides/resale-profit
+last_modified_at: 2026-11-15
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>How to calculate resale profit after fees and shipping | Margrow</title>
+  <meta name="description" content="Resale profit is the sale price minus marketplace fees, shipping, other costs and what you paid. A worked example, and how to get list prices, offer checks and profit per item with Margrow on iPhone.">
+  {% comment %} Use-case page (KAN-1242). English is canonical. Button names match the en strings of the live 2.0.0 (flip-profit i18n/en.ts) word for word.
+       The formula follows flip-profit domain/fees.ts netProceeds and domain/pricing.ts (margin is profit over sale price).
+       No free alternatives, no limits of the App, no price or billing model (soundpull-app D-58 / D-59 applied to every app). {% endcomment %}
+  <link rel="canonical" href="https://naruberio.github.io/margrow-legal/guides/resale-profit">
+  <link rel="alternate" hreflang="en" href="https://naruberio.github.io/margrow-legal/guides/resale-profit">
+  <link rel="alternate" hreflang="ja" href="https://naruberio.github.io/margrow-legal/guides/resale-profit-ja">
+  <link rel="alternate" hreflang="x-default" href="https://naruberio.github.io/margrow-legal/guides/resale-profit">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Margrow">
+  <meta property="og:title" content="How to calculate resale profit after fees and shipping">
+  <meta property="og:description" content="Profit = sale price − fees − shipping − other costs − cost. A worked example and the steps in Margrow.">
+  <meta property="og:url" content="https://naruberio.github.io/margrow-legal/guides/resale-profit">
+  <link rel="stylesheet" href="./ledger.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "HowTo",
+        "name": "How to calculate resale profit after fees and shipping",
+        "inLanguage": "en",
+        "url": "https://naruberio.github.io/margrow-legal/guides/resale-profit",
+        "dateModified": "2026-11-15",
+        "tool": {"@type": "HowToTool", "name": "Margrow (iPhone app)"},
+        "step": [
+          {"@type": "HowToStep", "position": 1, "text": "On the Inventory tab, tap + at the bottom right, choose [Add one item], enter the Name, Cost and Bought on date, and tap [Save]. Add a [Lowest price] if there is an amount you will not go below."},
+          {"@type": "HowToStep", "position": 2, "text": "On the item, open [Set List Price], set [Price by] to Profit or Margin and enter your target. [List price by marketplace] shows a list price per marketplace with fees included, plus your take-home and profit."},
+          {"@type": "HowToStep", "position": 3, "text": "When a buyer makes an offer, open [Check an Offer] and enter the [Offer amount]. You get OK to accept, Below your lowest price, You'd lose money, or Under your target margin."},
+          {"@type": "HowToStep", "position": 4, "text": "When it sells, open [Mark as Sold] and enter Sold for, Shipping paid by buyer, Shipping label cost and Other costs. Fees are filled in from the calculation and your profit is shown. Tap [Record sale]."}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "inLanguage": "en",
+        "mainEntity": [
+          {"@type": "Question", "name": "How do you calculate resale profit?", "acceptedAnswer": {"@type": "Answer", "text": "Take-home = sale price + shipping paid by the buyer − fees − shipping label cost − other costs. Profit = take-home − what you paid for the item. Margrow works out each item's profit this way."}},
+          {"@type": "Question", "name": "What is margin measured against?", "acceptedAnswer": {"@type": "Answer", "text": "In Margrow, margin is profit as a share of the sale price."}},
+          {"@type": "Question", "name": "Where do marketplace fees come from?", "acceptedAnswer": {"@type": "Answer", "text": "Fees for marketplaces such as eBay, Poshmark, Mercari and Etsy come built in, each with the date they were checked. If a marketplace changes its fees, edit them in Settings under [Marketplace fees]."}},
+          {"@type": "Question", "name": "How do I know whether to accept an offer?", "acceptedAnswer": {"@type": "Answer", "text": "Enter the offer in [Check an Offer]. Margrow works out your take-home and profit after fees and shipping, and checks the offer against your lowest price and target margin. If it falls short, it suggests a counter amount."}},
+          {"@type": "Question", "name": "Where are my records stored?", "acceptedAnswer": {"@type": "Answer", "text": "Everything stays on your iPhone. There is no account to sign up for."}}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+<div class="page">
+  <header class="head">
+    <a href="../">Margrow</a>
+    <span class="lang"><span aria-current="page">English</span><a href="./resale-profit-ja" lang="ja" hreflang="ja">日本語</a></span>
+  </header>
+
+  <h1>How to calculate resale profit after fees and shipping</h1>
+  <p class="sub">Your profit is what the buyer paid, minus fees and shipping, minus what you paid for the item. Keep it per item, and the same formula answers three questions: what to list at, whether to take an offer, and what you actually made.</p>
+
+  <h2>The formula</h2>
+  <p class="formula">Take-home = sale price + shipping paid by buyer − fees − shipping label cost − other costs<br>Profit = take-home − cost<br>Margin = profit ÷ sale price</p>
+
+  <h2>A worked example</h2>
+  <div class="wrap">
+    <table class="ledger">
+      <thead><tr><th scope="col">Line</th><th scope="col" class="n">Amount</th></tr></thead>
+      <tbody>
+        <tr><td>Sold for</td><td class="n">$30.00</td></tr>
+        <tr><td>Shipping paid by buyer (free shipping listing)</td><td class="n">$0.00</td></tr>
+        <tr><td>Fees (example: a marketplace charging 10% of the price)</td><td class="n">− $3.00</td></tr>
+        <tr><td>Shipping label cost (example)</td><td class="n">− $5.00</td></tr>
+        <tr><td>Other costs (packaging)</td><td class="n">− $0.50</td></tr>
+        <tr><td>Take-home</td><td class="n">$21.50</td></tr>
+        <tr><td>Cost (what you paid)</td><td class="n">− $8.00</td></tr>
+        <tr class="total"><td>Profit (margin 45%)</td><td class="n">$13.50</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">The numbers are an illustration. Fee rates and shipping depend on the marketplace and how you ship.</p>
+
+  <h2>Steps in Margrow</h2>
+  <ol class="entries">
+    <li>On the Inventory tab, tap + at the bottom right and choose <span class="ui">Add one item</span>. Enter the <span class="ui">Name</span>, <span class="ui">Cost</span> and <span class="ui">Bought on</span> date, then tap <span class="ui">Save</span>. If there is an amount you won’t sell below, add it as the <span class="ui">Lowest price</span>.</li>
+    <li>On the item, open <span class="ui">Set List Price</span>, set <span class="ui">Price by</span> to <span class="ui">Profit</span> or <span class="ui">Margin</span> and enter your target. <span class="ui">List price by marketplace</span> shows a list price per marketplace with fees included, with the take-home and profit for each. Pick one with <span class="ui">List at this price</span>.</li>
+    <li>When a buyer makes an offer, open <span class="ui">Check an Offer</span> and enter the <span class="ui">Offer amount</span>. You get <span class="ui">OK to accept</span>, <span class="ui">Below your lowest price</span>, <span class="ui">You’d lose money</span> or <span class="ui">Under your target margin</span>.</li>
+    <li>When it sells, open <span class="ui">Mark as Sold</span> and enter <span class="ui">Sold for</span>, <span class="ui">Shipping paid by buyer</span>, <span class="ui">Shipping label cost</span> and <span class="ui">Other costs</span>. <span class="ui">Fees</span> is filled in from the calculation, and your <span class="ui">Profit</span> is shown. Tap <span class="ui">Record sale</span>.</li>
+  </ol>
+  <p>To check before you buy, use <span class="ui">Max you should pay</span> on the Sourcing tab: enter the <span class="ui">Expected sale price</span>, where you’ll <span class="ui">Sell on</span>, the <span class="ui">Shipping cost</span> and a target margin or ROI, and <span class="ui">Pay up to</span> shows the most you can pay.</p>
+
+  <a class="store" href="https://apps.apple.com/app/apple-store/id6761647575?ct=mgweb-profit-en&amp;mt=8">View Margrow on the App Store</a>
+
+  <h2>Questions</h2>
+  <dl class="qa">
+    <dt>How do you calculate resale profit?</dt>
+    <dd>Take-home = sale price + shipping paid by the buyer − fees − shipping label cost − other costs. Profit = take-home − what you paid for the item. Margrow works out each item’s profit this way.</dd>
+    <dt>What is margin measured against?</dt>
+    <dd>In Margrow, margin is profit as a share of the sale price.</dd>
+    <dt>Where do marketplace fees come from?</dt>
+    <dd>Fees for marketplaces such as eBay, Poshmark, Mercari and Etsy come built in, each with the date they were checked. If a marketplace changes its fees, edit them in Settings under <span class="ui">Marketplace fees</span>.</dd>
+    <dt>How do I know whether to accept an offer?</dt>
+    <dd>Enter the offer in <span class="ui">Check an Offer</span>. Margrow works out your take-home and profit after fees and shipping, and checks the offer against your lowest price and target margin. If it falls short, it suggests a counter amount.</dd>
+    <dt>Where are my records stored?</dt>
+    <dd>Everything stays on your iPhone. There is no account to sign up for.</dd>
+  </dl>
+
+  <h2>Another way to use it</h2>
+  <p class="related"><a href="./inventory-ledger">How to keep a sourcing and inventory ledger for reselling</a></p>
+
+  <footer class="foot">
+    <a href="../support">Support</a><a href="../privacy-policy">Privacy Policy</a><a href="../terms">Terms of Use</a>
+  </footer>
+</div>
+</body>
+</html>

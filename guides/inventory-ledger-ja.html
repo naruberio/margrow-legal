@@ -1,0 +1,118 @@
+---
+layout: null
+permalink: /guides/inventory-ledger-ja
+last_modified_at: 2026-11-15
+---
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>せどり・転売の仕入れと在庫の台帳をつける方法（iPhone）| Margrow</title>
+  <meta name="description" content="仕入れた品を 1 品ずつ記録し、出品・売却・滞留日数・売上原価まで iPhone で追う方法。まとめ買いの仕入れ値の割り振り、売上の CSV の取り込み、古物台帳の記録も Margrow でできます。">
+  {% comment %} 用途別の説明ページ（KAN-1242）。英語版が正本。ボタン名は公開中の 2.0.0 の ja の表示（flip-profit の i18n/ja.ts）と一字一句そろえる。
+       古物台帳は ja だけの機能（flip-profit README の H・I）なので、英語版には書かない。
+       無料の代替手段・アプリ自身の制約・価格と課金の形は書かない（soundpull-app D-58・D-59 を全アプリに当てる） {% endcomment %}
+  <link rel="canonical" href="https://naruberio.github.io/margrow-legal/guides/inventory-ledger-ja">
+  <link rel="alternate" hreflang="en" href="https://naruberio.github.io/margrow-legal/guides/inventory-ledger">
+  <link rel="alternate" hreflang="ja" href="https://naruberio.github.io/margrow-legal/guides/inventory-ledger-ja">
+  <link rel="alternate" hreflang="x-default" href="https://naruberio.github.io/margrow-legal/guides/inventory-ledger">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Margrow">
+  <meta property="og:title" content="せどり・転売の仕入れと在庫の台帳をつける方法（iPhone）">
+  <meta property="og:description" content="仕入れから売れるまでを 1 品ずつ。滞留日数・売上原価・古物台帳まで。">
+  <meta property="og:url" content="https://naruberio.github.io/margrow-legal/guides/inventory-ledger-ja">
+  <link rel="stylesheet" href="./ledger.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "HowTo",
+        "name": "せどり・転売の仕入れと在庫の台帳をつける方法",
+        "inLanguage": "ja",
+        "url": "https://naruberio.github.io/margrow-legal/guides/inventory-ledger-ja",
+        "dateModified": "2026-11-15",
+        "tool": {"@type": "HowToTool", "name": "Margrow（iPhone アプリ）"},
+        "step": [
+          {"@type": "HowToStep", "position": 1, "text": "在庫のタブの右下の＋から［1 品を追加］を選び、名前・写真・仕入れ日・仕入れ先・仕入れ値・見込みの売値を入れて［保存］します。何品かをまとめて買ったときは［まとめ買いを追加］を選びます。"},
+          {"@type": "HowToStep", "position": 2, "text": "出品したら、品の詳細の［出品価格を決める］で販売先ごとの価格を確かめ、［この価格で出品］で出品を記録します。"},
+          {"@type": "HowToStep", "position": 3, "text": "売れたら品の詳細の［売れた］で［売れたを記録］します。注文が多いときは、売上のタブの［CSV を取り込む］で販売先の注文の CSV から記録できます。"},
+          {"@type": "HowToStep", "position": 4, "text": "在庫の一覧は［状態］で絞り込み、［並び順］を［滞留日数］にすると、長く手元にある品から並びます。"},
+          {"@type": "HowToStep", "position": 5, "text": "年の終わりには、帳簿のタブの［申告のまとめ］で期首の在庫・仕入れ・期末の在庫と売上原価を確かめます。"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "inLanguage": "ja",
+        "mainEntity": [
+          {"@type": "Question", "name": "まとめ買いした品の仕入れ値はどう分けますか？", "acceptedAnswer": {"@type": "Answer", "text": "［まとめ買いを追加］で代金の合計と品を入れ、［仕入れ値の割り振り］を［見込みの売値に比例］［均等］［手入力］から選びます。高く売れそうな品ほど仕入れ値を多く割り振ることもできます。"}},
+          {"@type": "Question", "name": "売れ残っている品はどう見つけますか？", "acceptedAnswer": {"@type": "Answer", "text": "在庫の一覧で［並び順］を［滞留日数］にすると、手元にある日数の長い品から並びます。設定の［滞留とみなす日数］を過ぎた品には印が付き、［値下げの通知］を入れると端末に通知が届きます。"}},
+          {"@type": "Question", "name": "確定申告に使う数字は出ますか？", "acceptedAnswer": {"@type": "Answer", "text": "帳簿のタブの［申告のまとめ］に、帳簿をつけるための目安として、期首の在庫・仕入れ・期末の在庫から出した売上原価と、経費・走行距離が年ごとに出ます。"}},
+          {"@type": "Question", "name": "古物台帳もつけられますか？", "acceptedAnswer": {"@type": "Answer", "text": "設定で［古物台帳を使う］をオンにすると、帳簿のタブに古物台帳が加わり、品の詳細から取引の記録を足せます。記録は年ごとに CSV に書き出せます。"}},
+          {"@type": "Question", "name": "機種変更のときはどうしますか？", "acceptedAnswer": {"@type": "Answer", "text": "設定の［書き出し・バックアップ］で台帳全体を 1 つのファイルに書き出し、新しい端末の Margrow で読み込みます。"}}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+<div class="page">
+  <header class="head">
+    <a href="../">Margrow</a>
+    <span class="lang"><a href="./inventory-ledger" lang="en" hreflang="en">English</a><span aria-current="page">日本語</span></span>
+  </header>
+
+  <h1>せどり・転売の仕入れと在庫の台帳をつける方法</h1>
+  <p class="sub">仕入れた品を 1 行ずつ帳面に書き、出品して、売れたら消し込む。紙やスプレッドシートでやっていたこの流れを、Margrow は iPhone の中の台帳で 1 品ずつ追います。</p>
+
+  <h2>台帳の 1 行に残ること</h2>
+  <div class="wrap">
+    <table class="ledger">
+      <thead><tr><th scope="col">いつ</th><th scope="col">残る項目</th></tr></thead>
+      <tbody>
+        <tr><td>仕入れたとき</td><td>名前・写真・仕入れ日・仕入れ先・仕入れ値・見込みの売値・最低価格・カテゴリ</td></tr>
+        <tr><td>出品したとき</td><td>販売先・出品価格・送料の見込み（販売先ごとに何か所でも）</td></tr>
+        <tr><td>売れたとき</td><td>売値・売れた日・手数料・実際の送料・その他の費用・注文番号・利益</td></tr>
+        <tr><td>手元から外れたとき</td><td>仕入れ先への返品・廃棄（紛失を含む）と、その日付</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Margrow での手順</h2>
+  <ol class="entries">
+    <li>在庫のタブの右下の ＋ から <span class="ui">1 品を追加</span> を選び、<span class="ui">名前</span>・<span class="ui">写真</span>・<span class="ui">仕入れ日</span>・<span class="ui">仕入れ先</span>・<span class="ui">仕入れ値</span>・<span class="ui">見込みの売値</span> を入れて <span class="ui">保存</span> します。何品かをまとめて買ったときは <span class="ui">まとめ買いを追加</span> を選びます。</li>
+    <li>出品したら、品の詳細の <span class="ui">出品価格を決める</span> で販売先ごとの価格を確かめ、<span class="ui">この価格で出品</span> で出品を記録します。</li>
+    <li>売れたら品の詳細の <span class="ui">売れた</span> で <span class="ui">売れたを記録</span> します。注文が多いときは、売上のタブの <span class="ui">CSV を取り込む</span> で販売先の注文の CSV から記録できます。</li>
+    <li>在庫の一覧は <span class="ui">状態</span> で絞り込み、<span class="ui">並び順</span> を <span class="ui">滞留日数</span> にすると、長く手元にある品から並びます。</li>
+    <li>年の終わりには、帳簿のタブの <span class="ui">申告のまとめ</span> で <span class="ui">期首の在庫</span>・<span class="ui">仕入れ</span>・<span class="ui">期末の在庫</span> と <span class="ui">売上原価</span> を確かめます。</li>
+  </ol>
+  <p>仕入れに出かけるときは、仕入れのタブの <span class="ui">仕入れを始める</span> で <span class="ui">予算</span> を決めておくと、その回に登録した品と使った額がまとまって見えます。</p>
+
+  <a class="store" href="https://apps.apple.com/app/apple-store/id6761647575?ct=mgweb-ledger-ja&amp;mt=8">App Store で Margrow を見る</a>
+
+  <h2>よくある質問</h2>
+  <dl class="qa">
+    <dt>まとめ買いした品の仕入れ値はどう分けますか？</dt>
+    <dd><span class="ui">まとめ買いを追加</span> で代金の合計と品を入れ、<span class="ui">仕入れ値の割り振り</span> を <span class="ui">見込みの売値に比例</span>・<span class="ui">均等</span>・<span class="ui">手入力</span> から選びます。高く売れそうな品ほど仕入れ値を多く割り振ることもできます。</dd>
+    <dt>売れ残っている品はどう見つけますか？</dt>
+    <dd>在庫の一覧で <span class="ui">並び順</span> を <span class="ui">滞留日数</span> にすると、手元にある日数の長い品から並びます。設定の <span class="ui">滞留とみなす日数</span> を過ぎた品には印が付き、<span class="ui">値下げの通知</span> を入れると端末に通知が届きます。</dd>
+    <dt>確定申告に使う数字は出ますか？</dt>
+    <dd>帳簿のタブの <span class="ui">申告のまとめ</span> に、帳簿をつけるための目安として、期首の在庫・仕入れ・期末の在庫から出した売上原価と、経費・走行距離が年ごとに出ます。</dd>
+    <dt>古物台帳もつけられますか？</dt>
+    <dd>設定で <span class="ui">古物台帳を使う</span> をオンにすると、帳簿のタブに古物台帳が加わり、品の詳細から取引の記録を足せます。記録は年ごとに CSV に書き出せます。</dd>
+    <dt>機種変更のときはどうしますか？</dt>
+    <dd>設定の <span class="ui">書き出し・バックアップ</span> で台帳全体を 1 つのファイルに書き出し、新しい端末の Margrow で読み込みます。</dd>
+  </dl>
+
+  <h2>ほかの使い方</h2>
+  <p class="related"><a href="./resale-profit-ja">転売の利益を計算する方法</a></p>
+
+  <footer class="foot">
+    <a href="../support">サポート</a><a href="../privacy-policy-ja">プライバシーポリシー</a><a href="../terms-ja">利用規約</a>
+  </footer>
+</div>
+</body>
+</html>
